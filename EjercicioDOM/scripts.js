@@ -3,8 +3,8 @@
 const url = "https://gist.githubusercontent.com/josejbocanegra/b1873c6b7e732144355bb1627b6895ed/raw/d91df4c8093c23c41dce6292d5c1ffce0f01a68b/newDatalog.json";
 var events = document.getElementsByClassName("events-data");
 var squirrel = document.getElementsByClassName("squirrel-data");
-var table = document.createElement("table");
-var tbody = document.createElement("tbody");
+var table = document.querySelector("table");
+var tbody = document.querySelector("tbody");
 var body = document.getElementsByTagName("body")[0];
 
 fetch(url)
@@ -29,6 +29,9 @@ fetch(url)
             row.appendChild(col2);
             row.appendChild(col3);
 
+            if(data[i].squirrel == true){
+              row.style.background = "rgb(255,0,0,0.5)";
+            }
             tbody.appendChild(row);
         }
         table.appendChild(tbody);
